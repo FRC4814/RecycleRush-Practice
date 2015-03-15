@@ -15,7 +15,7 @@ public class Interpreter extends Command {
 		//requires(Robot.chassis);
 		//requires(Robot.arm);
 		//requires(Robot.elevator);
-		setTimeout(10);
+		//setTimeout();
 	}
 
 	// Called just before this Command runs the first time
@@ -25,7 +25,6 @@ public class Interpreter extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() { //gets values of motions and sends to writer
-		System.out.println("Interpreter");
 		// Gathers values from throughout the robot and saves them to temporary double variables
 		double leftPower = Robot.chassis.getLeftPower();
 		double rightPower = Robot.chassis.getRightPower();

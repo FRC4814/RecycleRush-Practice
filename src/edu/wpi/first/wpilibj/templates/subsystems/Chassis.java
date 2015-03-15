@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * 
  */
-public class Chassis extends Subsystem {
+public class Chassis extends RecordableSubsystem {
 	private RobotDrive myRobot;
 	private Encoder encoderLeft;
 	private Encoder encoderRight;

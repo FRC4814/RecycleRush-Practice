@@ -1,39 +1,49 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.usfirst.frc.team4814.robot.autocommands;
 
-/**
- *
- * @author Jack
- */
-public class OutputWriter2014{
-    
-    public OutputWriter2014() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    }
+import com.sun.squawk.microedition.io.FileConnection;
+import edu.wpi.first.wpilibj.Timer;
+import java.io.DataOutputStream;
+import java.io.PrintStream;
+import javax.microedition.io.Connector;
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+public class OutputWriter2014 {
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	private String data = new String();
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	public OutputWriter2014() {
+
+	}
+    private double lastTime =0;
+	public void writeText(double forwardPower, double turnPower,
+	double armPower, double elevatorPower) {
+        if (lastTime == 0){
+            lastTime = Timer.getFPGATimestamp();
+        }
+		System.out.println(forwardPower + "," + turnPower + "," + armPower + "," + elevatorPower + " " +(Timer.getFPGATimestamp()-lastTime));
+        
+		//writes to variable to text file to store motions 
+		data = data.concat(forwardPower + "," + turnPower + "," + armPower + "," + elevatorPower +","+ (Timer.getFPGATimestamp()-lastTime)+"\n");
+	}
+
+	public void save() { //writes to text file
+		System.out.println("data" + data);
+		PrintStream out;
+		DataOutputStream theFile;
+		FileConnection fc;
+
+		try {
+			fc = (FileConnection) Connector.open("file:///output.txt", Connector.WRITE);
+			fc.create();
+			theFile = fc.openDataOutputStream();
+			out = new PrintStream(theFile);
+			out.print(data);
+			out.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

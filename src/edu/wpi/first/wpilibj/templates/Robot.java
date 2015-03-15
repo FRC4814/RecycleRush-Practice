@@ -17,6 +17,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import org.usfirst.frc.team4814.robot.autocommands.InputReader2014;
+import org.usfirst.frc.team4814.robot.autocommands.Interpreter;
+import org.usfirst.frc.team4814.robot.autocommands.OutputWriter2014;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -62,9 +65,8 @@ public class Robot extends IterativeRobot {
 		oi.rightButton3.whileHeld(new ElevatorUp());
 		oi.rightButton2.whileHeld(new ElevatorDown());
 		
-		//oi.recordButton.whenPressed(new Interpreter()); // Starts recording joystick output when button 4 is pressed 
-		//oi.playbackButton.whenPressed(new InputReader());// plays back recorded outputs
-			
+		oi.recordButton.whenPressed(new Interpreter()); // Starts recording joystick output when button 4 is pressed 
+		oi.playbackButton.whenPressed(new InputReader2014());// plays back recorded outputs			
 		oi.elevatorLevel[0].whenPressed(new ElevatorMoveTo(0)); //Moves the elevator to the
 		oi.elevatorLevel[1].whenPressed(new ElevatorMoveTo(1)); //appropriate level
 		oi.elevatorLevel[2].whenPressed(new ElevatorMoveTo(2));
@@ -83,7 +85,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		// schedule the autonomous command (example)
 		// autonomousComand = (Command) autonomous;
-		autonomousCommand = new AutoTest();//where autonomous is called//TODO Change this to InputReader
+		autonomousCommand = new InputReader2014();//where autonomous is called//TODO Change this to InputReader
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 	}
