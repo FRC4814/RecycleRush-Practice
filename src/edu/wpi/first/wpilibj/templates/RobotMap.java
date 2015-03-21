@@ -12,6 +12,7 @@ public class RobotMap {
     public static final int[] LEFT_MOTORS = {4,3};
     public static final int[] RIGHT_MOTORS = {2,1}; // Front Right, Back Right
     public static final int[] ELEVATOR_MOTOR = {6,5}; // Motor set to elevator winch
+    public static final int[] INTAKE_MOTOR = {7,8};
     public static final int ARM_MOTOR = 7; // Motor set to arm winch
   //encoder ports
     public static final int[] ENCODER_LEFT = {1,2 };

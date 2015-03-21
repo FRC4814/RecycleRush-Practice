@@ -9,14 +9,16 @@ import edu.wpi.first.wpilibj.templates.commands.ElevatorMoveTo;
 import edu.wpi.first.wpilibj.templates.commands.ElevatorUp;
 import edu.wpi.first.wpilibj.templates.subsystems.Arm;
 import edu.wpi.first.wpilibj.templates.subsystems.Chassis;
-import edu.wpi.first.wpilibj.templates.subsystems.DoNothing;
+
 import edu.wpi.first.wpilibj.templates.subsystems.Elevator;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.templates.subsystems.Intake;
 import org.usfirst.frc.team4814.robot.autocommands.InputReader2014;
 import org.usfirst.frc.team4814.robot.autocommands.Interpreter;
 import org.usfirst.frc.team4814.robot.autocommands.OutputWriter2014;
@@ -33,8 +35,11 @@ public class Robot extends IterativeRobot {
 	public static Chassis chassis; 		// drive code
 	public static Elevator elevator;
 	public static DriveFor DriveFor; 	// TODO this will be changed to InputReader
-	public static Arm arm; 				
+	public static Interpreter interpreter;
+    public static InputReader2014 inputReader2014;
+    public static Arm arm; 				
 	public static OI oi; 				
+    public static Intake intake;
 
 	Command autonomousCommand;		
 	SendableChooser autoChooser;	// Choose which autonomous mode we play using
@@ -44,14 +49,15 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		autoChooser = new SendableChooser();	// Initializing autoChooser
-		autoChooser.addDefault("doNothing", new DoNothing());	// Adds default action to autoChooser of DoNothing
+		//autoChooser = new SendableChooser();	// Initializing autoChooser
+		//autoChooser.addDefault("doNothing", new DoNothing());	// Adds default action to autoChooser of DoNothing
 		//autoChooser.addObject("autonomousCode", new AutonomousCode());	// Adds a second option to the robot 
 		
 		//initializes and calls constructor
 		// arm = new Arm();			//TODO uncomment arm initialization
 		chassis = new Chassis();			
-		elevator = new Elevator();	 
+		elevator = new Elevator();
+        intake = new Intake();
 		oi = new OI();				
 		autoChooser = new SendableChooser();
 		// instantiate the command used for the autonomous period

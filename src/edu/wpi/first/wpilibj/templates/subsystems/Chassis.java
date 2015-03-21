@@ -28,8 +28,7 @@ public class Chassis extends RecordableSubsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     // If you know him, Tell Kyle Inzunza to get motorvated. 
-    public void initDefaultCommand() {
-    	
+    public void initDefaultCommand() {    	
     // Set the default command for a subsystem here.
         setDefaultCommand(new AutoTest());
     }

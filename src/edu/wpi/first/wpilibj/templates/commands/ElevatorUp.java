@@ -23,7 +23,7 @@ public class ElevatorUp extends Command {
     	if (Robot.elevator.getCurrentElevatorLevel() == 2)
     		Robot.elevator.lift(0);
     	else
-    		Robot.elevator.lift(0.25);
+    		Robot.elevator.lift(Robot.oi.driverRightStick.getThrottle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
