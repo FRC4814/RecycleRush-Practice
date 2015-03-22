@@ -21,14 +21,15 @@ public class ElevatorDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//if (Robot.elevator.getCurrentElevatorLevel() == 0)
-    	//	Robot.elevator.lift(0);
+    		Robot.elevator.lift(0.8);
     	//else 
-    		Robot.elevator.lift(Robot.oi.driverRightStick.getThrottle());
+    	//	Robot.elevator.lift(Robot.oi.driverRightStick.getThrottle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elevator.getLimitSwitch(0);
+        //return Robot.elevator.getLimitSwitch(0);
+        return false;
     }
 
     // Called once after isFinished returns true

@@ -1,12 +1,9 @@
-package edu.wpi.first.wpilibj.templates.commands;
+/*package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- * 
- */
 public class IntakeWheels extends Command {
 
     public IntakeWheels() {
@@ -27,12 +24,12 @@ public class IntakeWheels extends Command {
            Robot.intake.lift(.95,-.95); 
         }
     	if(forwardPower < 0){
-           Robot.intake.lift(0,0); 
+           Robot.intake.lift(-.95,.95); 
         }
         if(turnMod > 0){
            Robot.intake.lift(.95,.95); 
         }
-        if(turnMod > 0){
+        if(turnMod < 0){
            Robot.intake.lift(-.95,-.95); 
         }
     }
@@ -52,4 +49,4 @@ public class IntakeWheels extends Command {
     protected void interrupted() {
     	end();
     }
-}
+}*/

@@ -15,7 +15,7 @@ public class OutputWriter2014 {
 	public OutputWriter2014() {
 
 	}
-    private double lastTime =0;
+    private double lastTime = 0;
 	public void writeText(double forwardPower, double turnPower,
 	double armPower, double elevatorPower) {
         if (lastTime == 0){
@@ -40,7 +40,7 @@ public class OutputWriter2014 {
 			out = new PrintStream(theFile);
 			out.print(data);
 			out.close();
-//hi
+//hi hi
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -41,7 +41,8 @@ public class HaloDrive extends Command {
 			rightPower = -turnMod;    		   		
     	}
     	
-    	Robot.chassis.drive(leftPower,rightPower);
+    	//Robot.chassis.drive(leftPower,rightPower);     //GOOD VERSION
+        Robot.chassis.drive(leftPower, 0); //KEY-LAY VERSION
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,6 +50,8 @@ public class HaloDrive extends Command {
         return false;
     }
 
+    //Erin is the coolest person on 4814
+    
     // Called once after isFinished returns true
     protected void end() {
     	Robot.chassis.drive(0,0); // stop motors when not using joystick

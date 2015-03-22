@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
 		// arm = new Arm();			//TODO uncomment arm initialization
 		chassis = new Chassis();			
 		elevator = new Elevator();
-        intake = new Intake();
+        //intake = new Intake();
 		oi = new OI();				
 		autoChooser = new SendableChooser();
 		// instantiate the command used for the autonomous period
@@ -77,6 +77,9 @@ public class Robot extends IterativeRobot {
 		oi.elevatorLevel[1].whenPressed(new ElevatorMoveTo(1)); //appropriate level
 		oi.elevatorLevel[2].whenPressed(new ElevatorMoveTo(2));
 		oi.elevatorLevel[3].whenPressed(new ElevatorMoveTo(3));		
+                
+                oi.intakeButton.whileHeld(new Intake(0.8));
+                oi.outtakeButton.whileHeld(new Intake(-0.8));
 	}
 	/**
 	 * Called after * returns false

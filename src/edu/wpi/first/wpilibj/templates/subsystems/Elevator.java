@@ -6,9 +6,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
+
 public class Elevator extends Subsystem {
 	Victor[] winchMotor;
 	private DigitalInput[] elevatorLimitSwitch;
@@ -32,8 +30,8 @@ public class Elevator extends Subsystem {
     }
     
     public void lift(double power){
-    	//winchMotor[0].set(power);
-    	//winchMotor[1].set(power);
+    	winchMotor[0].set(power);
+    	winchMotor[1].set(power);
     }
     
 	/**
