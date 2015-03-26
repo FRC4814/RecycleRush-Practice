@@ -13,7 +13,7 @@ public class Intake extends Command {
     //private double leftPower;
     //private double rightPower;        
    private double power;
-   
+
     Victor[] IntakeMotor;	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -42,6 +42,7 @@ public class Intake extends Command {
     public void lift(double power){
         this.power = power;
         IntakeMotor[0].set(power);
+        IntakeMotor[1].set(-power);
     }
 
     protected void initialize() {
